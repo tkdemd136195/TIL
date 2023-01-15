@@ -61,3 +61,15 @@ dnf config-manager —add-repo=”링크주소” : 링크주소로 리포지토
 
 mount
 mount <파티션> <경로> : 해당 경로에 파티션을 마운트
+
+find
+find [경로] -name [파일명] : 경로에서 파일명 검색
+find [경로] -uid 1000 
+            -user developer
+            -group developer
+find [경로] -type d : 디렉터리 검색
+            -type f : 파일 검색
+
+mount(UUID사용해서)
+lsblk -fp [경로] : UUID확인
+mount UUID=”[UUID값]” [경로] : UUID값으로 마운트
