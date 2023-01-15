@@ -35,3 +35,29 @@ PasswordAuthentication no로 변경
 systemctl reload sshd 재시작
 
 ssh-copy-id 사용자명@해당주소 : SSH 공개 키 전송
+
+hostnamectl set-hostname 이름 : hostname 변경
+cat /etc/host 에서 ip주소를 host주소로 변경 가능
+
+tar
+tar -cf ‘생성할파일이름’  ‘압축할 파일명’ : 압축파일 생성
+-czf | gzip(.gz)
+-cjf  | bzip2(.bz2)
+-cJf  | xz(.xz)
+#####z는 gz / j는 bz2 / J는 xz #####
+
+tar -tf 압축파일명 : 내용 보기
+tar -xvf 압축파일명 : 압축 해제(해당 경로에서)
+압축방법에 따라 -z, j, f 옵션만 xvf앞에 붙여주면 된다.
+
+sftp
+명령어 앞에 l을 붙이면 로컬 환경에서 명령어 실행된다
+get : 접속한 서버 → 로컬서버로 파일 다운받기
+put : 로컬서버 → 접속한 서버로 파일 업로드
+
+dnf
+dnf config-manager —enable repo명 : repo명 활성화
+dnf config-manager —add-repo=”링크주소” : 링크주소로 리포지토리 추가
+
+mount
+mount <파티션> <경로> : 해당 경로에 파티션을 마운트
