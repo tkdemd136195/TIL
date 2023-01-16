@@ -106,3 +106,42 @@ cp로 파일을 복사하면 해당 디렉터리에 맞게 컨텍스트가 변�
 chcon -t [컨텍스트명] [경로] : 컨텍스트명 변경
 chcon -t httpd_sys_content_t /virtual
 restorecon -v /virtual : 컨텍스트 기본값으로 변경(default_t)
+
+lsblk : 블럭 형태로 파티션 보기
+gdisk [파티션경로] : 해당 파티션 나누는 과정 접속
+n : 파티션 생성
+p: 현재 파티션 상황 보기
+w: 저장
+c: 이름 변경
+빠져나온 후 partprobe 필수
+
+mkfs.xfs
+mkfs.ext4 로 포맷
+mount [파티션명] [연결할 경로]
+- 오토마운트
+#vi /etc/fstab
+[장치명] [연결할 경로] [포맷유형] defaults 0 0
+저장 후 재부팅
+
+parted [장치명] mkpart [이름] [포맷명] [시작크기] [마지막크기]
+■ 스왑 파티션은 포맷명이 linux-swap 이다
+완료 후 udevadm settle
+mkswap [장치명] : 스왑 공간 포맷
+
+swapon -a 오류안나면 성공
+swapon —show 로 전체보기
+/etc/fstab에서 
+`UUID=39e2667a-9458-42fe-9   swap   swap   defaults   0 0` 
+swap 2개 있으면 스왑 오토마운트
+
+- LVM(논리볼륨)만들기
+pvcreate [장치명] : 물리 볼륨 레이블 지정
+vgcreate [그룹명] [장치명] [장치명] : 그룹명으로 그룹 생성
+vgextend [그룹명] [장치명] : 볼륨 그룹 확장
+lvcreate -n [논리볼륨명] -L [크기] [그룹명]
+lvextend -r -L [크기] [그룹명] : r붙이면 재포맷까지 해줌
+              700M : 크기를 700M으로 설정 
+             +300M : 현재 크기에 300M 더한다
+mkfs.ext4 /dev/servera_group/LVM명 : 포맷
+(-r옵션안될때)resize2fs /dev/servera_group/servera_volume : 논리볼륨 확장했을때 재포멧
+vi /etc/fstab 마운트
