@@ -73,3 +73,36 @@ find [경로] -type d : 디렉터리 검색
 mount(UUID사용해서)
 lsblk -fp [경로] : UUID확인
 mount UUID=”[UUID값]” [경로] : UUID값으로 마운트
+
+crontab
+-l : 현재 사용자의 작업 표시
+-r : 현재 사용자의 모든 작업 제거
+-e : 현재 사용자의 작업 편집
+
+crontab 설정 순서
+분 시 일 월 요일 명령
+일(0), 월(1), ~ , 토(6)
+*/n : n분, 시간마다 실행
+9-16 : 오전 9시부터 4시까지 
+#vi /etc/crontab에서 구문 참조
+
+tuned(튜닝 프로파일 관리)
+tuned-adm active : 현재 활성상태인 튜닝 프로파일 확인
+tuned-adm list : 목록 확인 
+tuned-adm profile [프로파일명] : 해당 프로파일로 변경
+tuned-adm recommend : 권장된 프로파일로 설정
+
+SELINUX
+Enforcing(적용)
+Permissive(허용)
+Disabled(비활성화)
+#vi /etc/selinux/config 에서  SELINUX=enforcing, permissive, disabled (부팅 시 영구적으로 적용)
+setenforce 0 : Permissive
+setenforce 1 : enforcing
+
+ls -Z : 해당 파일의 SELinux 컨텍스트 표시
+mv로 파일을 이동하면 원래 컨텍스트로 유지되고
+cp로 파일을 복사하면 해당 디렉터리에 맞게 컨텍스트가 변경된다.
+chcon -t [컨텍스트명] [경로] : 컨텍스트명 변경
+chcon -t httpd_sys_content_t /virtual
+restorecon -v /virtual : 컨텍스트 기본값으로 변경(default_t)
