@@ -145,3 +145,11 @@ lvextend -r -L [크기] [그룹명] : r붙이면 재포맷까지 해줌
 mkfs.ext4 /dev/servera_group/LVM명 : 포맷
 (-r옵션안될때)resize2fs /dev/servera_group/servera_volume : 논리볼륨 확장했을때 재포멧
 vi /etc/fstab 마운트
+
+NFS
+sudo dnf install autofs nfs-utils
+# vi /etc/auto.master.d/demo.autofs
+/shares        /etc/auto.demo 
+# vi /etc/auto.demo
+[마운트될경로] -rw,sync,fstype=nfs4 [어디랑 마운트할건지]
+systemctl enable —now autofs
