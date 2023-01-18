@@ -153,3 +153,7 @@ sudo dnf install autofs nfs-utils
 # vi /etc/auto.demo
 [마운트될경로] -rw,sync,fstype=nfs4 [어디랑 마운트할건지]
 systemctl enable —now autofs
+
+u+s : 파일의 소유자로 파일이 실행된다
+g+s : 파일을 소유한 그룹 권한으로 실행.  디렉터리에 생성된 파일들의 그룹 소유자가 디렉터리와 동일함
+o+t : 디렉터리에 대한 쓰기 권한이 있는 사용자가 자신이 소유한 파일만 제거할 수 있고. 다른 사용자가 소유한 파일을 제거하거나 강제저장 못함
