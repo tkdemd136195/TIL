@@ -1,0 +1,11 @@
+■ TypeError : unsupported operand type(s) for
+n = int(input("입력: "))
+for cnt in range(n):
+    max += cnt
+print(max)
+///
+TypeError: unsupported operand type(s) for +=: 'builtin_function_or_method' and 'int'
+서로 연산이 불가능한 타입끼리 연산을 시도할 때 나타나는 에러.
+max+=cnt 부분을 보면 cnt변수는 int형이지만 max변수는 builtin_function_or_method 라는 타입이다.
+##반복문 들어가기 전에 max=0이라 적어서 int형으로 만들어주면 해결된다.##
+----------------------------------------------------------------------------------------------------------------------
