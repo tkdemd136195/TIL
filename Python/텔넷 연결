@@ -2,7 +2,7 @@ import telnetlib
 
 tn = telnetlib.Telnet("192.168.58.10") #접속할 IP주소
 tn.read_until(b"Username: ") #'login: '이 뜰때까지 기다림
-tn.write('유저명'.encode('인코딩 타입') + b'\n') #연결하려는 환경에 따라 UTF-8,ascii같은
+tn.write('유저명'.encode('인코딩 타입') + b'\n') #연결하려는 환경에 따라 UTF-8,ascii같은 
 tn.read_until(b"Password: ")					         #인코딩 타입을 설정한다
 tn.write('비밀번호'.encode('인코딩 타입') + b'\n')
 
