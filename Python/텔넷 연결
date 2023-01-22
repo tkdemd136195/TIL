@@ -1,0 +1,13 @@
+import telnetlib
+
+tn = telnetlib.Telnet("192.168.58.10") #접속할 IP주소
+tn.read_until(b"Username: ") #'login: '이 뜰때까지 기다림
+tn.write('유저명'.encode('인코딩 타입') + b'\n') #연결하려는 환경에 따라 UTF-8,ascii같은
+tn.read_until(b"Password: ")					         #인코딩 타입을 설정한다
+tn.write('비밀번호'.encode('인코딩 타입') + b'\n')
+
+IN_INPtext = self.textEdit.toPlainText() #textEdit에 입력한 문자열 입력 받고
+        w_txt = IN_INPtext.split('\n')   #\n을 기준으로 나누고 배열로 저장
+        
+for data in w_txt: 
+   tn.write(data.encode('ascii') + b"\n") #나눈 문자열 하나씩 입력
