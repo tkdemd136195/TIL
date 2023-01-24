@@ -1,0 +1,29 @@
+1. sep
+separate의 줄임말. "각 문자열 사이를 어떻게 구분 할 것인가"를 나타낸다.
+기본값은 ' '(띄어쓰기)로 되어있으며 반드시 문자열로 설정하여야 한다.
+n1 = "Welcome"
+n2 = "to the"
+n3 = "Python"
+n4 = "World"
+print(n1, n2, n3, n4, sep='@')
+>>>Welcome@to the@Python@World​
+ 
+
+2. end
+end 옵션은 그 뒤의 출력값과 이어서 출력한다.(줄바꿈 생략)
+print("Welcome to ", end="")
+print("the Python World")
+>>>Welcome to the Python World
+ 
+
+3. format
+포맷팅을 활용하여 특정 서식에 따라 문자를 출력할 수 있다.
+▶숫자를 활용한 format
+print("{0}는 {1}월 {2}일입니다.".format("크리스마스", 12, 25))
+>>>크리스마스는 12월 25일입니다.
+ 
+▶%기호를 사용한 format
+자료 형태에 따라 사용하는 포맷코드가 다르다
+%d = 정수  /  %s = 문자열  /  %f = 소수
+print("%s는 %d월 %d일입니다." %("크리스마스", 12, 25))
+>>>크리스마스는 12월 25일입니다.
