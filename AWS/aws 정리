@@ -3,13 +3,17 @@
 2. 맨 아래 체크 해제 후 next permission - attach exisiting policies - Administrator Access 체크 후 next tag preview - create user
 3. Dashboard 클릭 후 오른쪽에 url복사 후 로그인
 
-■ Elastic IP 생성
-1. EC2 Dashboard - Network & Security 하위에 Elastic IPs
-2. Allocate Elastic IP address 클릭 후 Allocate
-
 ■ VPC 생성(논리적으로 구성된 사용자 전용 네트워크)
 1. VPC only
 2. CIDR 10.0.0.0/16 
 3. create vpc
 4. Edit VPC setting - Enable DNS hostname 체크
 5. VPC, Subnets 이름 따로 설정
+
+■ GateWay 생성 후 연결
+이름만 붙이고 create - 오른쪽 위 Attach to VPC - 연결할 vpc선택 후 attach
+
+■ subnet 생성
+1. (이름 Public Subnet1) -  가용영역 첫번째(a) - IPv4 10.0.0.0/24
+2. (이름 Private Subnet1) - 가용영역 첫번째(a) - IPv4 10.0.2.0/24 후 생성
+3. Public Subnet1 선택 후 오른쪽 위 Edit subnet settings - Enable auto-assign public IPv4 address 체크
