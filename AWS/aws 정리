@@ -11,7 +11,7 @@
 5. VPC, Subnets 이름 따로 설정
 
 ■ GateWay 생성 후 연결
-이름만 붙이고 create - 오른쪽 위 Attach to VPC - 연결할 vpc선택 후 attach
+이름만 붙이고 create - 오른쪽 위 Attach to VPC - 연결할 vpc선택 후 attach  
 
 ■ subnet 생성
 1. (이름 Public Subnet1) -  가용영역 첫번째(a) - IPv4 10.0.0.0/24
