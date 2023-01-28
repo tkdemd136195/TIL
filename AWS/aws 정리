@@ -17,3 +17,13 @@
 1. (이름 Public Subnet1) -  가용영역 첫번째(a) - IPv4 10.0.0.0/24
 2. (이름 Private Subnet1) - 가용영역 첫번째(a) - IPv4 10.0.2.0/24 후 생성
 3. Public Subnet1 선택 후 오른쪽 위 Edit subnet settings - Enable auto-assign public IPv4 address 체크
+
+■ 라우팅 테이블 추가
+1. (이름 Public Routing) - VPC 선택 - create route table
+2. 처음에 생성된 라우터는 Private이므로 오른쪽 아래에 Edit route로 들어가서 Addroute - 목적지 default gateway 추가(0.0.0.0/0) - Target internet-gateway - 저장
+3. 여기까지 했으면 아직 할당된 서브넷이 없다. Subnet associations 클릭 - ****Explicit subnet associations 오른쪽 Edit ~ - Public Subnet1 클릭 후 저장**** 
+4. Private Subnet이면 Private을 추가하면 되고, 서브넷을 추가했을때도 여기서 설정한다.
+
+##기본 라우팅 테이블은 안 건드리는게 좋음##
+
+##Route tables에 Main부분이 Yes라면 기본으로 만들어진 테이블 / No면 내가 만든 테이블##
