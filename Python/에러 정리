@@ -8,4 +8,16 @@ TypeError: unsupported operand type(s) for +=: 'builtin_function_or_method' and 
 서로 연산이 불가능한 타입끼리 연산을 시도할 때 나타나는 에러.
 max+=cnt 부분을 보면 cnt변수는 int형이지만 max변수는 builtin_function_or_method 라는 타입이다.
 ##반복문 들어가기 전에 max=0이라 적어서 int형으로 만들어주면 해결된다.##
+https://itstoryy.tistory.com/10
+----------------------------------------------------------------------------------------------------------------------
+■ TypeError: int() argument must be a string, a bytes-like object or a number, not 'list'
+num, num2 = int(input("").split())
+>> 2 10
+///
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'list'
+타입에러가 발생한다. 해석해 보니 <정수 인수는 'list'가 아닌 문자열, 바이트와 같은 개체 또는 숫자여야 합니다>라고 한다.
+그 말인즉슨 input("").split()으로 입력한 문자를 나눈 순간 각각의 문자열로 적용되는 것이 아닌 리스트에 담긴다는 의미이다.
+##num, num2 = map(int, input("").split())##
+##map() 함수로 묶어주면 해결된다##
+https://itstoryy.tistory.com/13
 ----------------------------------------------------------------------------------------------------------------------
