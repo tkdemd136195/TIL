@@ -32,3 +32,16 @@
 3. 이름이랑 설명 작성 하고 vpc설정 후 Add rule
 4. 허용할 유형 선택
 5. 웹이라면 Source는 Anywhere-IPv4(모든 요청 허용)
+
+■ 인스턴스 시작
+1. EC2 대시보드 하위에 Instance - Launch Instance 선택
+2. 이름 정하고 Ubuntu리눅스(버전 18.04)
+3. create new keypair 클릭 후 이름 정하고 create(pem파일 복사)
+4. Network Setting - Edit
+    1.  vpc : testVPC
+    2. Subnet : Public
+    3. Auto-assign public IP : enable (IP자동할당받기)
+    4. Firewall - 새로 만들면 add securty group rule
+        type : SSH/HTTP, source type : Anywhere/Anywhere - advanced details
+    5. 이미 있으면 select existing ~ 선택 후 적어둔 그룹 선택
+6. 맨 아래에 User data - 아래 링크 클릭 후 [web instance user data] 복사하고 User data에 붙여넣기 - launch instances
