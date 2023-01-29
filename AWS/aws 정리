@@ -23,7 +23,12 @@
 2. 처음에 생성된 라우터는 Private이므로 오른쪽 아래에 Edit route로 들어가서 Addroute - 목적지 default gateway 추가(0.0.0.0/0) - Target internet-gateway - 저장
 3. 여기까지 했으면 아직 할당된 서브넷이 없다. Subnet associations 클릭 - ****Explicit subnet associations 오른쪽 Edit ~ - Public Subnet1 클릭 후 저장**** 
 4. Private Subnet이면 Private을 추가하면 되고, 서브넷을 추가했을때도 여기서 설정한다.
-
 ##기본 라우팅 테이블은 안 건드리는게 좋음##
-
 ##Route tables에 Main부분이 Yes라면 기본으로 만들어진 테이블 / No면 내가 만든 테이블##
+
+■ VPC 보안 그룹 생성
+1. VPC대시보드 Security하위에서 Security Group 선택
+2. Create security group
+3. 이름이랑 설명 작성 하고 vpc설정 후 Add rule
+4. 허용할 유형 선택
+5. 웹이라면 Source는 Anywhere-IPv4(모든 요청 허용)
