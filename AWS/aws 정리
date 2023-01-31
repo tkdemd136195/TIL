@@ -61,3 +61,7 @@
 6. VPC - Route tables -create route table - 이름 Private Routing, VPC: testVPC - 생성
 7. Edit route수정 - add 후 0.0.0.0/0 Instance 추가(NAT-server)
 8. subnet ossociations - Edit subnet - Private Subnet 1 선택 후 저장
+
+■ DB
+launch instance - 이름: DB server - 우분투18 - keypair testkey - Network Edit - testVPC, Private Subnet
+- 방화벽 create(이름: DB-SG) - 규칙 추가 후 MySQL/Aurora, Source 10.0.0.0/16 - [DB Instance User Data] 내용 복사 후 userdata 부분에 붙여넣기
