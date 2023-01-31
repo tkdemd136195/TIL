@@ -45,3 +45,19 @@
         type : SSH/HTTP, source type : Anywhere/Anywhere - advanced details
     5. 이미 있으면 select existing ~ 선택 후 적어둔 그룹 선택
 6. 맨 아래에 User data - 아래 링크 클릭 후 [web instance user data] 복사하고 User data에 붙여넣기 - launch instances
+
+■ NAT인스턴스 추가(게이트웨이는 돈나감) DB인스턴스 다운받을때 사용
+1. EC2 대시보드 - launch instance 
+    1. 이름 : NAT Server
+    2. OS : Ubuntu 18.04
+    3. keypair - testkey
+    4. Network Edit - VPC: testVPC, Public subnet1
+    5. security group type: SSH, Custom TCP
+    6. TCP부분 port range 0-1023, source 10.0.0.0/16
+2. Custom UDP 추가 후 위에랑 똑같이
+3. All ICMPv4 추가 후 Source 10.0.0.0/16
+4. Userdata 부분에 [NAT Instance user data](https://s3.ap-northeast-2.amazonaws.com/class.kukuboor.com/NAT+Instance+User+Data(Ubuntu).txt) 복붙
+5. 만든 후 실행되면 인스턴스 체크 후 오른쪽 위 Actions - Networking - Change source/destination check(네트워크 변경되면 자동으로 차단) Stop으로
+6. VPC - Route tables -create route table - 이름 Private Routing, VPC: testVPC - 생성
+7. Edit route수정 - add 후 0.0.0.0/0 Instance 추가(NAT-server)
+8. subnet ossociations - Edit subnet - Private Subnet 1 선택 후 저장
