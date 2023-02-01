@@ -65,3 +65,28 @@
 ■ DB
 launch instance - 이름: DB server - 우분투18 - keypair testkey - Network Edit - testVPC, Private Subnet
 - 방화벽 create(이름: DB-SG) - 규칙 추가 후 MySQL/Aurora, Source 10.0.0.0/16 - [DB Instance User Data] 내용 복사 후 userdata 부분에 붙여넣기
+
+■ WEB서버에 DB등록
+1. putty로 web서버 접속
+2. cd /var/www/html/basic/login/dbconn.php 들어가서
+3. mysql_hostname 부분을 DB사설주소로 변경
+이 작업은 네트워크 설정 후에 해야한다.
+
+■ ALB 생성
+1. EC2 - Load Balancers - create(Application Load Balancer)
+    1. 이름 : Web-Application-ELB
+    2. VPC : 만들어둔 VPC
+    3. Mapping 전부 체크(Subnet도 Public으로)
+    4. Security group 아래 Create new ~ 클릭
+    5. 이름 적고 VPC설정
+    6. Add rule(HTTP, Anywhere-IPv4)
+2. 만든 그룹 불러오기(default는 삭제)
+3. Listners and routing에서 Create target group
+    1. instance - 이름: lab-app-target-group
+    2. Health checks - Advanced health ~ 확장
+    3. 2, 5, 30, 40(H U T I) 변경 후 Next
+    4. 만들어진 인스턴스 선택 후 Include as ~ 
+    5. Create target group
+4. 새로고침 후 만든 그룹 선택
+5. create load balancer , view load balanver
+6. 만들어진 elb선택 active확인, DNS복사 후 접속확인
