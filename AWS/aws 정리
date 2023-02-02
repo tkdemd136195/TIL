@@ -102,7 +102,7 @@ launch instance - 이름: DB server - 우분투18 - keypair testkey - Network Ed
 5. Network setting - Web Security 그룹 선택
 6. Advanced details - IAM instance profile - EmployeeDire~
 7. User data 적고 Create
-
+ 
 ■ Auto scaling 그룹 생성
 1. EC2 - Auto Scaling group
 2. create - 이름: app-asg, template : lab-app-launch - next
