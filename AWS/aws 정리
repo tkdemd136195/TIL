@@ -90,3 +90,15 @@ launch instance - 이름: DB server - 우분투18 - keypair testkey - Network Ed
 4. 새로고침 후 만든 그룹 선택
 5. create load balancer , view load balanver
 6. 만들어진 elb선택 active확인, DNS복사 후 접속확인
+
+■ 시작 템플릿 생성
+1. EC2 - Launch Templates(instances) - Create launch
+    1. 이름 : lab-app-launch-template
+    2. Provide~ 앞에 체크
+2. Application and OS -required부분에서 Browe more AMIs 선택
+    1. 첫번째 SSD 64bit확인 후 select
+3. Instance type - t3.micro
+4. key pair - Don’t include ~
+5. Network setting - Web Security 그룹 선택
+6. Advanced details - IAM instance profile - EmployeeDire~
+7. User data 적고 Create
