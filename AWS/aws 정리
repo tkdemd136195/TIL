@@ -102,3 +102,15 @@ launch instance - 이름: DB server - 우분투18 - keypair testkey - Network Ed
 5. Network setting - Web Security 그룹 선택
 6. Advanced details - IAM instance profile - EmployeeDire~
 7. User data 적고 Create
+
+■ Auto scaling 그룹 생성
+1. EC2 - Auto Scaling group
+2. create - 이름: app-asg, template : lab-app-launch - next
+3. VPC 설정, 서브넷 선택 - next
+4. Attach to exisiting load balancer
+5. choose ~ , 그룹 선택
+6. Health check ELB선택 - next
+7. optional(2, 2, 4) - 밑에도 (value 40, need 300) - next
+8. Add notification 작성
+9. next - next - create auto scaling group
+10. 메일 확인
