@@ -122,3 +122,18 @@ launch instance - 이름: DB server - 우분투18 - keypair testkey - Network Ed
 4. permissions에서 block public access off로
 5. 인스턴스 선택 후 Connect
 6. Session manager 들어가서 Connect 누르면 콘솔화면 연결
+
+■ 역할 부여
+1. IAM - users 사용자 새로 만들기(require password 체크해제)
+2. Attach existing policies ~
+3. EC2FullAccess 정책 체크 후 다음
+4. Create user
+5. 왼쪽메뉴 Roles - Create Role
+6. Aws Account - This Account(이 계정이 관리하는 사용자에게 적용)
+7. AmazonS3FullAccess - Next
+8. S3FullAccessRole(이름 오타 주의) - 다음
+9. users - 방금만든 계정 - Add inline policy
+10. json에  내용 추가
+    1. Account id = 계정 id , ROLE_NAME : 규칙 이름
+11. Review Policy
+12. 정책이름 : AssumeRole - Create Policy
