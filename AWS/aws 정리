@@ -114,3 +114,11 @@ launch instance - 이름: DB server - 우분투18 - keypair testkey - Network Ed
 8. Add notification 작성
 9. next - next - create auto scaling group
 10. 메일 확인
+
+■ S3 저장소 생성
+1. S3 - create bucket 후 버킷 이름 설정
+2. 리전 맞추고 create bucket
+3. 만든 버킷 선택 후 파일 업로드
+4. permissions에서 block public access off로
+5. 인스턴스 선택 후 Connect
+6. Session manager 들어가서 Connect 누르면 콘솔화면 연결
