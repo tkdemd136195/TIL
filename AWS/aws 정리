@@ -137,3 +137,12 @@ launch instance - 이름: DB server - 우분투18 - keypair testkey - Network Ed
     1. Account id = 계정 id , ROLE_NAME : 규칙 이름
 11. Review Policy
 12. 정책이름 : AssumeRole - Create Policy
+
+■ 보안 그룹 설정
+1. VPC - Security groups - DB-SG
+2. 출발지가 0.0.0.0이면 보안성이 떨어진다. 
+3. 시크릿 브라우저로 지금 만든 계정으로 로그인 하면 EC2기능 말고는 전부 사용 불가능하다
+4. Edit inbound rules 
+5. type : mysql/aurora , source : sg검색 후 Web Service-SG 저장
+6. 출발지가 Web일 경우에만 접속이 되고, 다른 곳에서는 접속이 안된다.
+7. MySQL/Aurora 삭제하고 Add rule
