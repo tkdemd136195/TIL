@@ -146,3 +146,8 @@ launch instance - 이름: DB server - 우분투18 - keypair testkey - Network Ed
 5. type : mysql/aurora , source : sg검색 후 Web Service-SG 저장
 6. 출발지가 Web일 경우에만 접속이 되고, 다른 곳에서는 접속이 안된다.
 7. MySQL/Aurora 삭제하고 Add rule
+
+■ NAT Gateway 생성
+1. vpc - Nat gateways - create - 이름 정하고 Allocate eElastic ip -create
+2. 해당 라우터에 들어가서 Edit - routes - Add route 목적지 0.0.0.0/0, Target : Nat Gateway설정
+3. subnet Association - edit
