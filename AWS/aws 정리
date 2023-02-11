@@ -151,3 +151,10 @@ launch instance - 이름: DB server - 우분투18 - keypair testkey - Network Ed
 1. vpc - Nat gateways - create - 이름 정하고 Allocate eElastic ip -create
 2. 해당 라우터에 들어가서 Edit - routes - Add route 목적지 0.0.0.0/0, Target : Nat Gateway설정
 3. subnet Association - edit
+
+■ RDS DB 생성
+1. RDS - Create Database - standard - DB선택 - Templates Dev/Test
+2. 관리자 이름, 비밀번호 생성 - instance class : Burstable classes/db.t3.small
+3. Don’t create on ~
+4. 만들어둔 VPC설정, acess No
+5. Monitoring - Enable Enhanced monitoring 선택 해제
