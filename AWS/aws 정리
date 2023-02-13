@@ -158,3 +158,20 @@ launch instance - 이름: DB server - 우분투18 - keypair testkey - Network Ed
 3. Don’t create on ~
 4. 만들어둔 VPC설정, acess No
 5. Monitoring - Enable Enhanced monitoring 선택 해제
+
+■ Load Balancer 생성
+1. (Target Goup 생성)EC2 - Target Groups - Create
+2. instance , 이름 , Lab PC - Next
+3. 인스턴스 2개 체크 - include as pending below - create
+4. (Load Balancer 생성)EC2 - Load Balancer - Create
+5. Application Create - 이름 ,VPC 설정 
+6. Mapping 에서 Public 1, 2 선택
+7. 그룹 선택
+8. Listener and routing - Default action에서 위에서 생성한 그룹으로
+9. Create - View / active 확인
+10. RDS - Databases - DB클릭
+11. writer 인스턴스 Endpoint값 복사 후 따로 메모
+12. EC2 - Traget Groups - ALBTargetGroup 선택
+13. Targets 탭에서 상태 healthy 확인
+14. Load Balancers - Description 에서 DNS Name 복사해서 새로 붙여넣기
+15. setting 누르고 Endpoint: 아까 복사했던거, 나머지 넣어서 추가
